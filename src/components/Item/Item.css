@@ -1,0 +1,7 @@
+.element_item{
+    display: inline-block;
+    width: 150px; 
+    border: 1px solid #000000;
+    word-wrap: break-word;
+    margin: 0 auto;
+}
