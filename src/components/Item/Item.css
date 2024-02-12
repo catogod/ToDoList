@@ -5,3 +5,7 @@
     word-wrap: break-word;
     margin: 0 auto;
 }
+.CompStyle{
+    background-color: #b0abab;
+    text-decoration: line-through;
+}

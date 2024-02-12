@@ -1,5 +1,7 @@
-import AddGoal from "./components/AddGoal/AddGoal.jsx";
-import Item from "./components/Item/Item.jsx";
+import AddGoal from './components/AddGoal/AddGoal.jsx';
+import Item from './components/Item/Item.jsx';
+import Quotes from './components/QuotesApi/Quotes.jsx';
+import ImageApi from './components/ImageApi/ImageApi.jsx';
 
 import { useState, useEffect } from "react";
 
@@ -34,7 +36,7 @@ const App = function () {
         <AddGoal inputDataToItem={inputDataTo} />
         </div>
         <div>
-        <Item addNewItem={{inputData,count}} />
+        <Item addNewItem={{inputData,count}}/>
         </div>
       </section>
     </div>
