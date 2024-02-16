@@ -1,27 +1,39 @@
 import { useState, useEffect } from 'react';
 
 function App() {
-  const [data, setData] = useState(null);
+    const [photos, setPhotos] = useState(null);
 
-  useEffect(() => {
-    //explain later, wish the quote api will also work like i
-    fetch('https://api.unsplash.com/photos/random?count=3&client_id=0NMREIpOoa-rlhjNg-XTQpVYULJQUlNJNFZxyH37p_A')
-      .then(response => response.json())
-      .then(json => setData(json))//may use another option
-      .catch(error => console.error(error));
-      const picLink =[];
-      for (let i in data){
-        picLink.push(data['urls']['raw']);
-      }
-      setData(picLink);
-      console.log(picLink);
-  }, []);
+    useEffect(() => {
+      fetch('https://api.unsplash.com/photos/random?count=3&client_id=0NMREIpOoa-rlhjNg-XTQpVYULJQUlNJNFZxyH37p_A')
+        .then((res) => {
+          //check later for response type
+          return res.json();
+        })
+        .then((data) => {
+          const newUrl=[];
+          //console.log(data);
+          for (let i in data){
+            console.log(data[i]['urls']['full']);
+            newUrl.push(data[i]['urls']['full']);
+          }
+          console.log(newUrl);
+          setPhotos(newUrl);
+          //console.log(photos);
+        })
+        .catch(error => console.log(error));
+    }, []);
 
+    function getImage(){
+      return photos[1];
+    }
+
+//+{photos[1]} +} need to add url
   return (
-    <div>
-      <img src={data[0]} alt="" />
-      <img src={data[1]} alt="" />
-      <img src={data[2]} alt="" />
+    <div style={{ backgroundImage:`url(${photos})` }}>
+      {console.log(photos)}
+      {photos && photos.map((photo) => (
+        <img src={photo} alt='nah' width={100} />
+      ))}
     </div>
   );
 }

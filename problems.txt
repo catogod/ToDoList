@@ -1,0 +1,5 @@
+add filter in item.jsx and not the for loop -- last one to do item
+
+okay, need to change the images 
+
+the qoute api need enable cors, can wait

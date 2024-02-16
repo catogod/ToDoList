@@ -1,7 +1,8 @@
 import AddGoal from './components/AddGoal/AddGoal.jsx';
 import Item from './components/Item/Item.jsx';
-import Quotes from './components/QuotesApi/Quotes.jsx';
+import Quote from './components/QuotesApi/Quotes.jsx';
 import ImageApi from './components/ImageApi/ImageApi.jsx';
+import WeatherApi from './components/WeatherApi/WeatherApi.jsx';
 
 import { useState, useEffect } from "react";
 
@@ -25,10 +26,12 @@ const App = function () {
 
       <section>
         <h1>HI im the weather without css and code</h1>
+        <WeatherApi/>
       </section>
 
       <section>
         <h1>HI im the background without css and code</h1>
+        <ImageApi/>
       </section>
 
       <section>
