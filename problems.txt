@@ -1,9 +1,0 @@
-add filter in item.jsx and not the for loop -- last one to do item
-
-okay, need to change the images 
-
-make the alert on weather if problems
-change all the export app so something meaningful 
-it dont show me the images that i put there
-
-the qoute api need enable cors, can wait

@@ -10,10 +10,7 @@ import { useState, useEffect } from "react";
 const App = function () {
   const [inputData, setInputData] = useState(null);//the goal himself
   const [count, setCount] = useState(0);//count for goal, key basically 
-  const [photos, setPhotos] = useState(null);//array of the photos url
-
-  // const [countPhotoNumber,setCountPhotoNUmber] = useState(0);//count the number of photo
-  // const [currentPhoto,setCurrentPhoto]=useState(null);//current image background 
+  const [photos, setPhotos] = useState(null);//circular node of the photos url
 
   function inputDataTo(inputDataVar){
     //getting the input data to make new item
@@ -28,29 +25,28 @@ const App = function () {
     async function callRequestGetImagesUrl() {
       //setting the values to null
       let newUrl=new CircularLinkedList();
-      let response =await fetch('https://api.unsplash.com/photos/random?count=3&client_id=jNzeAiue4NwHizYw1FvsU4YQXVY-9J0kUlxejH8JUUQ');
+      let response =await fetch('https://api.unsplash.com/photos/random?client_id=jNzeAiue4NwHizYw1FvsU4YQXVY-9J0kUlxejH8JUUQ&count=5&auto=format');
       let data = await response.json();
       for (let i in data){
-
-            newUrl.append(data[i]['urls']['regular']);
+          newUrl.append(data[i]['urls']['regular']);//appending to newUrl the url one by one to circular node
         }
       setPhotos(newUrl.head);
     }
-    callRequestGetImagesUrl();
+    callRequestGetImagesUrl();//calling the function above
   }, []);
 
-  //go through images
+  //go through images by getting the next
   function MapThroughPhotos(){
     let node = null;
     if(photos!=null){
-      node=photos.next;
+      node=photos.next;//setting the next node to node
       setPhotos(node);
     }
   }
 
   return (
     <body style={{backgroundImage: `url(${photos && photos.data})`, backgroundSize: 'cover',
-    backgroundRepeat: 'no-repeat',height: '100vh',width: '100%',}}>
+    backgroundRepeat: 'no-repeat'}}>
     <div>
       <section>
         <Quote/>

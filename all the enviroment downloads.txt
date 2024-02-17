@@ -1,0 +1,15 @@
+okays so:
+
+install node from node.js.org
+
+Visual studio code - javascript/react
+
+npx create-react-app {name}
+
+used :
+npm install --> in terminal all the libraries 
+
+install react --> npm install react react-dom
+
+npm install axios -- to handle https get request -->didnt used it
+

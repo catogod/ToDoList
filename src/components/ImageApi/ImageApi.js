@@ -1,4 +1,5 @@
 
+//node class
 class Node {
   constructor(data) {
       this.data = data;
@@ -19,7 +20,7 @@ getPrevious(node) {
 
 
 
-
+//exporting the image circular data structure 
 export class CircularLinkedList {
   constructor() {
       this.head = null;

@@ -5,4 +5,6 @@
   }
 .paragraph_p{
     background-color: #ffffff;
+    max-width: 1000px; 
+    width: 100%; 
 }

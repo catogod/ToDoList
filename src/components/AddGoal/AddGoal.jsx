@@ -1,10 +1,11 @@
 import './AddGoal.css';
 import {useRef} from 'react';
 
-
+//exporting the add goal component 
 export default function AddGoal({inputDataToItem}){
     //hook that manages the user input
     const inputRef = useRef(null);
+
     function handleClick() {
         //passing the data up to parent component
         inputDataToItem(inputRef.current.value);

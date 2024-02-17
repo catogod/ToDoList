@@ -1,9 +1,8 @@
 import "./Item.css";
 import { useState, useEffect } from "react";
 
+//exporting the items component
 export default function Item({ addNewItem }) {
-
-
 
   const [items, setItems] = useState([]);//current items
   const [lastItemKey,setLastItemKey]=useState(null);//the last item added - to prevent the bug with the render i had
@@ -16,7 +15,7 @@ export default function Item({ addNewItem }) {
     [addNewItem]
   );
 
-
+  //checking if the render was necessary
   function CheckIfDuplicateRenderItem(){
     //check if pressed
     if (addNewItem.count!=0){
@@ -31,12 +30,12 @@ export default function Item({ addNewItem }) {
         return true;
       }
     }
+    //the item is duplicate of render
   return false;
   }
 
-
+  //go through the items and delete the chosen + update in useState
   function callDeleteButton(index) {
-    //can use .filter however thats also works for me
     const newItem = [];
     for (let cItem of items) {
       if (cItem.count != index) {
@@ -46,8 +45,8 @@ export default function Item({ addNewItem }) {
     //updating the items which also calls useEffect update the web visual
     setItems(newItem);
   }
+  //calling an complete/undo button which changes the parameters of items by id (count)
   function callCompleteButton(index){
-    //can use .filter however thats also works for me
     const newItem = [];
     for (let cItem of items) {
       if (cItem.count === index) {
@@ -56,6 +55,7 @@ export default function Item({ addNewItem }) {
         cItem.state = cItem.state == 'Complete' ? 'Undo' : 'Complete';
         newItem.push(cItem);
       }
+      //it is not the item that pressed 
       else{
         newItem.push(cItem);
       }
@@ -66,8 +66,7 @@ export default function Item({ addNewItem }) {
 
   //textDecorationLine
 
-  //mapping through the items and make then and ugly html for now
-  //adding the onclick on delete to delete, really simple
+  //mapping through the items and 
   return (
     <>
         {items.map((item) => (
