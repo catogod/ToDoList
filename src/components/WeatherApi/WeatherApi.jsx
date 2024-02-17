@@ -9,10 +9,9 @@ function WeatherApp() {
       if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(success, error);
       } else {
-        console.log("Geolocation not supported");
+        alert("Geolocation not supported");
       }
     }
-  
     function success(position) {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
@@ -26,7 +25,7 @@ function WeatherApp() {
           setWeather(data);
           console.log(data);
         })
-        .catch(error => console.log(error));
+        .catch(error => alert("something went wrong on client server"));
     }
   
     function error() {
@@ -34,7 +33,7 @@ function WeatherApp() {
     }
   
     return (
-      <div>
+      <>
         {!location ? <button onClick={handleLocationClick}>Get Location</button> : null}
         {location && !weather ? <p>Loading weather data...</p> : null}
         {weather ? (
@@ -44,24 +43,8 @@ function WeatherApp() {
             <p>Weather: {weather.weather[0].description}</p>
           </div>
         ) : null}
-      </div>
+      </>
     );
   }
   
   export default WeatherApp;
-
-
-
-//
-// fetch('https://api.openweathermap.org/data/2.5/weather?lat='+position.latitude+'&lon='+position.longitude+'&appid=7f213ff1370ce5696c760658350c1571&units=metric')
-// .then((res) => {
-//   //check later for response type
-//   return res.json();
-// })
-// .then((data) => {
-//     console.log(data);
-//     console.log(data['main']['temp']);
-//     setWeatherData(data['main']['temp']);
-// });
-
-// {weatherData===null ? "sorry could not get your location, try to refresh the page and press yes, it it doesn't show again delete history/cookies of the last hour and try again" :"Current temp is "+weatherData }

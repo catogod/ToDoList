@@ -5,7 +5,6 @@ import {useRef} from 'react';
 export default function AddGoal({inputDataToItem}){
     //hook that manages the user input
     const inputRef = useRef(null);
-
     function handleClick() {
         //passing the data up to parent component
         inputDataToItem(inputRef.current.value);
@@ -18,7 +17,6 @@ export default function AddGoal({inputDataToItem}){
         <>
             <input id="InputGoal" ref={inputRef} type="text"  placeholder="Enter Your Goal" autoComplete="off"/>
             <button onClick={handleClick} className="ImButton" >Add goal</button>
-            <h2>{}</h2>
         </>
     );
 }

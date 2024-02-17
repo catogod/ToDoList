@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-
+import "./Quotes.css";
 
 
 
@@ -7,23 +7,34 @@ function App() {
   const [quote, setQuote] = useState([]);
 
   useEffect(() => {
-      fetch('https://quotes.rest/qod.json?category=inspire&api_key=JqbLNjISMtIT7vazivHsTLVAH1PJTVppDk1PzYM7')
-        .then((res) => {
-          //check later for response type
-          console.log(res.json());     
-          return res.json();
-        })
-        .then((data) => {
-          console.log(data);     
-          setQuote()
-        })
-        .catch(error => console.log(error));
+
+fetch('https://api.api-ninjas.com/v1/quotes?category=inspirational', {
+      method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            'X-Api-Key': 'WUx0anzobTx0h0azpgz/wA==512IqvoONnF6Ud0j' 
+          },
+})
+.then(response => {
+  if (!response.ok) {
+    throw new Error('Network response was not ok');
+  }
+  return response.json();
+})
+.then(data => {
+  let quote = data[0]["quote"] +" By " +data[0]["author"];
+  setQuote(quote);
+})
+.catch(error => {
+  console.error('There was a problem with your fetch operation:', error);
+});
     }, []); 
 
   return (
-    <div>
-      {quote}
+    <><div className='container'>
+      <p className='paragraph_p'>{quote}</p>
     </div>
+    </>
   );
 }
 

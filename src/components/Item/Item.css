@@ -1,4 +1,4 @@
-.element_item{
+/* .element_item{
     display: inline-block;
     width: 150px; 
     border: 1px solid #000000;
@@ -8,4 +8,34 @@
 .CompStyle{
     background-color: #b0abab;
     text-decoration: line-through;
+} */
+
+.container {
+    width: 200px;
+    margin: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color:#fff;
+}
+
+.container p {
+    margin-bottom: 10px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
 }

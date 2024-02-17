@@ -1,0 +1,35 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+.container-wrapper {
+    display: flex;
+    flex-wrap: wrap-reverse; /* Reverse the wrapping direction (from right to left) */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    max-height: 80vh; /* Set maximum height for the container */
+    overflow-y: auto; /* Enable vertical scroll if content exceeds container height */
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.div-fit-content {
+    display: inline-block; /* Allow the content div to fit its content */
+    background-color: #ffffff;
+}
+
+.content {
+    flex-grow: 1; /* Allow content to grow to fill container */
+}
+
+.top-right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 10px;
+}
